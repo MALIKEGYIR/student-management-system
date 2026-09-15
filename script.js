@@ -126,3 +126,35 @@ searchInput.addEventListener("input", function() {
 
 // Initial display
 displayStudents();
+// Dashboard statistics
+function updateDashboard() {
+    const totalStudents = document.getElementById("totalStudents");
+    const totalCourses = document.getElementById("totalCourses");
+    const passedStudents = document.getElementById("passedStudents");
+    const failedStudents = document.getElementById("failedStudents");
+
+    // Count total students
+    totalStudents.textContent = students.length;
+
+    // Count unique courses
+    const courses = new Set(
+        students.map(student => student.course.toLowerCase())
+    );
+
+    totalCourses.textContent = courses.size;
+
+    // Count passed and failed students
+    const passed = students.filter(student =>
+        ["A", "B", "C", "D", "E"].includes(student.grade)
+    ).length;
+
+    const failed = students.filter(student =>
+        student.grade === "F"
+    ).length;
+
+    passedStudents.textContent = passed;
+    failedStudents.textContent = failed;
+}
+
+// Update dashboard when the page loads
+updateDashboard();
