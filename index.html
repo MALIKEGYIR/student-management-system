@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Management System</h1>
+        <p>Manage student records easily</p>
+    </header>
+
+    <main class="container">
+
+        <section class="form-section">
+            <h2>Add Student</h2>
+
+            <form id="studentForm">
+                <input type="hidden" id="editIndex">
+
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName"
+                    placeholder="Enter student name" required>
+
+                <label for="studentId">Student ID</label>
+                <input type="text" id="studentId"
+                    placeholder="Enter student ID" required>
+
+                <label for="studentCourse">Course</label>
+                <input type="text" id="studentCourse"
+                    placeholder="Enter course" required>
+
+                <label for="studentLevel">Level</label>
+                <select id="studentLevel" required>
+                    <option value="">Select level</option>
+                    <option value="100">Level 100</option>
+                    <option value="200">Level 200</option>
+                    <option value="300">Level 300</option>
+                    <option value="400">Level 400</option>
+                </select>
+
+                <label for="studentGrade">Grade</label>
+                <select id="studentGrade" required>
+                    <option value="">Select grade</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                </select>
+
+                <button type="submit" id="submitButton">
+                    Add Student
+                </button>
+            </form>
+        </section>
+
+        <section class="records-section">
+            <h2>Student Records</h2>
+
+            <input type="text" id="searchInput"
+                placeholder="Search by name or student ID">
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Student ID</th>
+                            <th>Course</th>
+                            <th>Level</th>
+                            <th>Grade</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage">No student records yet.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Management System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
