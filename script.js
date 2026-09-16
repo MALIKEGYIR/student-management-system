@@ -126,6 +126,7 @@ searchInput.addEventListener("input", function() {
 
 // Initial display
 displayStudents();
+updateDashboard();
 // Dashboard statistics
 function updateDashboard() {
     const totalStudents = document.getElementById("totalStudents");
