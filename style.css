@@ -218,3 +218,55 @@ footer {
         padding: 18px;
     }
 }
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    margin-bottom: 25px;
+}
+
+.dashboard h2 {
+    margin-bottom: 20px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid #1e3a8a;
+}
+
+.dashboard-card h3 {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.dashboard-card p {
+    color: #1e3a8a;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* Dashboard on tablets */
+@media (max-width: 800px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Dashboard on phones */
+@media (max-width: 450px) {
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+}
