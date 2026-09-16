@@ -10,10 +10,8 @@ const emptyMessage = document.getElementById("emptyMessage");
 const submitButton = document.getElementById("submitButton");
 const editIndex = document.getElementById("editIndex");
 
-// Load saved students
 let students = JSON.parse(localStorage.getItem("students")) || [];
 
-// Display students
 function displayStudents(searchTerm = "") {
     studentTableBody.innerHTML = "";
 
@@ -52,9 +50,10 @@ function displayStudents(searchTerm = "") {
 
         studentTableBody.appendChild(row);
     });
+
+    updateDashboard();
 }
 
-// Add or update student
 studentForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -83,7 +82,6 @@ studentForm.addEventListener("submit", function(event) {
     displayStudents();
 });
 
-// Edit student
 function editStudent(index) {
     const student = students[index];
 
@@ -102,7 +100,6 @@ function editStudent(index) {
     });
 }
 
-// Delete student
 function deleteStudent(index) {
     const confirmation = confirm(
         "Are you sure you want to delete this student?"
@@ -119,43 +116,44 @@ function deleteStudent(index) {
     }
 }
 
-// Search students
 searchInput.addEventListener("input", function() {
     displayStudents(searchInput.value);
 });
 
-// Initial display
-displayStudents();
-updateDashboard();
-// Dashboard statistics
 function updateDashboard() {
-    const totalStudents = document.getElementById("totalStudents");
-    const totalCourses = document.getElementById("totalCourses");
-    const passedStudents = document.getElementById("passedStudents");
-    const failedStudents = document.getElementById("failedStudents");
+    const totalStudents =
+        document.getElementById("totalStudents");
 
-    // Count total students
+    const totalCourses =
+        document.getElementById("totalCourses");
+
+    const passedStudents =
+        document.getElementById("passedStudents");
+
+    const failedStudents =
+        document.getElementById("failedStudents");
+
     totalStudents.textContent = students.length;
 
-    // Count unique courses
     const courses = new Set(
-        students.map(student => student.course.toLowerCase())
+        students.map(student =>
+            student.course.toLowerCase()
+        )
     );
 
     totalCourses.textContent = courses.size;
 
-    // Count passed and failed students
     const passed = students.filter(student =>
         ["A", "B", "C", "D", "E"].includes(student.grade)
     ).length;
+
+    passedStudents.textContent = passed;
 
     const failed = students.filter(student =>
         student.grade === "F"
     ).length;
 
-    passedStudents.textContent = passed;
     failedStudents.textContent = failed;
 }
 
-// Update dashboard when the page loads
-updateDashboard();
+displayStudents();
