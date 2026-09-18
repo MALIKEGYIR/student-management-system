@@ -17,7 +17,7 @@ loginForm.addEventListener("submit", function(event) {
         sessionStorage.setItem("adminLoggedIn", "true");
 
         // Open the Student Management System
-        window.location.href = "index.html";
+        window.location.href = "dashboard.html";
 
     } else {
 
